@@ -72,10 +72,21 @@ export default {
 				'gradient-secondary': 'var(--gradient-secondary)',
 				'gradient-accent': 'var(--gradient-accent)',
 				'gradient-dark': 'var(--gradient-dark)',
+				'gradient-mesh': 'var(--gradient-mesh)',
 			},
 			boxShadow: {
 				'glow': 'var(--shadow-glow)',
 				'intense': 'var(--shadow-intense)',
+				'float': 'var(--shadow-float)',
+				'press': 'var(--shadow-press)',
+			},
+			backdropBlur: {
+				'xs': '2px',
+				'4xl': '72px',
+			},
+			fontSize: {
+				'display': ['6rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+				'hero': ['clamp(3rem, 8vw, 8rem)', { lineHeight: '0.85', letterSpacing: '-0.03em' }],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -31,56 +31,65 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden mesh-bg">
+      {/* Enhanced Background Layers */}
       <div className="absolute inset-0 bg-gradient-dark"></div>
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `url(${heroImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          filter: 'contrast(1.2) saturation(1.1)',
         }}
       ></div>
       
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-primary rounded-full opacity-20 animate-float"></div>
-      <div className="absolute bottom-40 right-32 w-24 h-24 bg-gradient-secondary rounded-full opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute top-1/2 left-10 w-16 h-16 bg-gradient-accent rounded-full opacity-25 animate-float" style={{ animationDelay: '4s' }}></div>
+      {/* Enhanced Floating Elements */}
+      <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-primary rounded-full opacity-15 animate-float blur-sm"></div>
+      <div className="absolute bottom-40 right-32 w-32 h-32 bg-gradient-secondary rounded-full opacity-20 animate-float-delayed blur-sm"></div>
+      <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-accent rounded-full opacity-18 animate-float-slow blur-sm"></div>
+      <div className="absolute top-32 right-20 w-16 h-16 bg-gradient-primary rounded-full opacity-25 animate-float"></div>
+      <div className="absolute bottom-20 left-32 w-20 h-20 bg-gradient-secondary rounded-full opacity-22 animate-float-delayed"></div>
 
       {/* Content */}
-      <div ref={heroRef} className="relative z-10 text-center max-w-4xl mx-auto px-6">
-        <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
-          <span className="block text-gradient animate-gradient">Creative</span>
-          <span className="block text-foreground">Developer</span>
-        </h1>
+      <div ref={heroRef} className="relative z-10 text-center max-w-5xl mx-auto px-6">
+        <div className="reveal">
+          <h1 className="text-hero font-black mb-8 text-display">
+            <span className="block text-gradient-accent animate-gradient">Creative</span>
+            <span className="block text-foreground mt-2">Developer</span>
+          </h1>
+        </div>
         
-        <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
-          I craft digital experiences that push boundaries and create lasting impressions through innovative design and seamless interactions.
-        </p>
+        <div className="reveal" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
+            I craft digital experiences that push boundaries and create lasting impressions through innovative design and seamless interactions.
+          </p>
+        </div>
         
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="reveal flex flex-col sm:flex-row gap-6 justify-center items-center" style={{ animationDelay: '0.4s' }}>
           <Button 
             size="lg" 
-            className="bg-gradient-primary hover:shadow-glow transform hover:scale-105 transition-all duration-300 px-8 py-6 text-lg font-semibold"
+            className="btn-premium text-primary-foreground px-10 py-7 text-lg font-bold tracking-wide magnetic-strong interactive-border"
             onClick={scrollToWork}
           >
             View My Work
+            <span className="ml-2 text-xl">→</span>
           </Button>
           <Button 
             variant="outline" 
             size="lg"
-            className="glass border-primary/30 hover:bg-primary/10 px-8 py-6 text-lg font-semibold magnetic"
+            className="glass-intense border-primary/20 hover:bg-primary/5 px-10 py-7 text-lg font-semibold magnetic interactive-border"
           >
             Let's Connect
+            <span className="ml-2 opacity-60">✦</span>
           </Button>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Enhanced Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary/50 rounded-full p-1">
-          <div className="w-1 h-3 bg-primary rounded-full mx-auto animate-pulse"></div>
+        <div className="w-8 h-12 glass border border-primary/30 rounded-full p-2 magnetic">
+          <div className="w-2 h-4 bg-gradient-primary rounded-full mx-auto animate-pulse"></div>
         </div>
       </div>
     </section>

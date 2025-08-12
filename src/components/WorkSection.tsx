@@ -42,21 +42,26 @@ const WorkSection = () => {
   return (
     <section id="work" className="py-24 px-6 bg-gradient-dark">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black mb-6">
-            <span className="text-gradient-secondary">Featured</span>
-            <span className="text-foreground block">Work</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A collection of projects that showcase my passion for creating exceptional digital experiences
-          </p>
+        <div className="text-center mb-20">
+          <div className="reveal">
+            <h2 className="text-display text-5xl md:text-6xl font-black mb-6">
+              <span className="text-gradient-secondary animate-gradient">Featured</span>
+              <span className="text-foreground block mt-2">Work</span>
+            </h2>
+          </div>
+          <div className="reveal" style={{ animationDelay: '0.1s' }}>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              A collection of projects that showcase my passion for creating exceptional digital experiences that push creative boundaries
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {projects.map((project) => (
             <Card
               key={project.id}
-              className="group relative overflow-hidden glass border-border/50 hover:border-primary/30 transition-all duration-500 transform hover:scale-105 cursor-pointer"
+              className="group relative overflow-hidden glass-intense border-border/30 hover:border-primary/40 transition-all duration-700 magnetic-strong cursor-pointer interactive-border reveal"
+              style={{ animationDelay: `${0.1 * project.id}s` }}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
@@ -68,34 +73,35 @@ const WorkSection = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
-                {/* Overlay Actions */}
-                <div className={`absolute inset-0 flex items-center justify-center space-x-4 transition-all duration-300 ${
-                  hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
+                {/* Enhanced Overlay Actions */}
+                <div className={`absolute inset-0 flex items-center justify-center space-x-6 transition-all duration-500 ${
+                  hoveredProject === project.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
                 }`}>
-                  <Button size="sm" className="bg-primary/90 hover:bg-primary">
+                  <Button size="sm" className="btn-premium text-primary-foreground px-6 py-3 font-bold magnetic">
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Live
+                    Live Demo
                   </Button>
-                  <Button size="sm" variant="outline" className="glass border-primary/30">
+                  <Button size="sm" variant="outline" className="glass-intense border-primary/40 hover:bg-primary/10 px-6 py-3 font-semibold magnetic">
                     <Github className="w-4 h-4 mr-2" />
-                    Code
+                    Source
                   </Button>
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-gradient transition-colors duration-300">
+              <div className="p-8">
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-gradient-accent transition-all duration-500 tracking-tight">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
+                <div className="flex flex-wrap gap-3">
+                  {project.tags.map((tag, index) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-sm bg-muted/50 text-muted-foreground rounded-full border border-border/50"
+                      className="px-4 py-2 text-sm bg-muted/40 text-muted-foreground rounded-full border border-border/30 glass hover:border-primary/30 transition-all duration-300 magnetic"
+                      style={{ animationDelay: `${index * 0.1}s` }}
                     >
                       {tag}
                     </span>
@@ -106,14 +112,17 @@ const WorkSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-16">
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="glass border-primary/30 hover:bg-primary/10 px-8 py-4 text-lg magnetic"
-          >
-            View All Projects
-          </Button>
+        <div className="text-center mt-20">
+          <div className="reveal">
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="glass-intense border-primary/30 hover:bg-primary/10 px-12 py-6 text-lg font-semibold magnetic-strong interactive-border"
+            >
+              View All Projects
+              <span className="ml-3 text-xl opacity-60">↗</span>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
